@@ -228,7 +228,7 @@ function goTo(i, { scroll = true, force = false } = {}) {
     programmaticScroll = true;
     clearTimeout(programmaticTimer);
     page.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
-    programmaticTimer = setTimeout(() => (programmaticScroll = false), 1000);
+    programmaticTimer = setTimeout(endProgrammaticScroll, 1000);
   }
   focusMap(page);
 }
@@ -282,6 +282,23 @@ function readingLine() {
   return wide.matches ? innerHeight * 0.35 : mapRect.bottom + 80;
 }
 
+function syncToReadingLine() {
+  if (state.layout !== "split") return;
+  const y = readingLine();
+  const i = pages.findIndex((p) => {
+    const r = p.getBoundingClientRect();
+    return r.top <= y && r.bottom > y;
+  });
+  if (i >= 0) goTo(i, { scroll: false });
+}
+
+// Scroll events are ignored while goTo's own smooth scroll runs. Once it settles, check
+// the reading line again, or a scroll the user started mid-animation would be lost.
+function endProgrammaticScroll() {
+  programmaticScroll = false;
+  syncToReadingLine();
+}
+
 let scrollQueued = false;
 addEventListener(
   "scroll",
@@ -289,19 +306,14 @@ addEventListener(
     if (state.layout !== "split") return;
     if (programmaticScroll) {
       clearTimeout(programmaticTimer);
-      programmaticTimer = setTimeout(() => (programmaticScroll = false), 150);
+      programmaticTimer = setTimeout(endProgrammaticScroll, 150);
       return;
     }
     if (scrollQueued) return;
     scrollQueued = true;
     requestAnimationFrame(() => {
       scrollQueued = false;
-      const y = readingLine();
-      const i = pages.findIndex((p) => {
-        const r = p.getBoundingClientRect();
-        return r.top <= y && r.bottom > y;
-      });
-      if (i >= 0) goTo(i, { scroll: false });
+      syncToReadingLine();
     });
   },
   { passive: true },
@@ -405,7 +417,9 @@ for (const img of document.querySelectorAll(".photo img")) {
   img.addEventListener("error", hide);
 }
 
-fetch("images/credits.json")
+// Captions change card heights, so they must be in place before the first jump to a stop;
+// otherwise the split layout scrolls to a card that then slides away from the reading line.
+const creditsReady = fetch("images/credits.json")
   .then((res) => (res.ok ? res.json() : {}))
   .catch(() => ({}))
   .then((credits) => {
@@ -426,6 +440,8 @@ fetch("images/credits.json")
   });
 
 // ---------- start ----------
+
+await creditsReady;
 
 setLang(initialLang());
 renderLang();
