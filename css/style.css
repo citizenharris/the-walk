@@ -274,10 +274,15 @@ button {
   color: inherit;
 }
 
-.across ul {
-  margin: 0;
+.across ul,
+.stations {
+  margin: 0 0 12px;
   padding: 0;
   list-style: none;
+}
+
+.stations li {
+  margin: 0 0 8px;
 }
 
 .across li {

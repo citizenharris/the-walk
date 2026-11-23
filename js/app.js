@@ -395,6 +395,36 @@ gpsBtn.addEventListener("click", () => {
   );
 });
 
+// ---------- photos ----------
+// Credits live in images/credits.json. A photo with no entry there (one of our own) gets no caption.
+
+for (const img of document.querySelectorAll(".photo img")) {
+  const hide = () => (img.closest(".photo").hidden = true);
+  // The module runs after parsing, so an image may already have failed before this listener exists.
+  if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) hide();
+  img.addEventListener("error", hide);
+}
+
+fetch("images/credits.json")
+  .then((res) => (res.ok ? res.json() : {}))
+  .catch(() => ({}))
+  .then((credits) => {
+    for (const fig of document.querySelectorAll(".photo[data-photo]")) {
+      const c = credits[fig.dataset.photo];
+      if (!c) continue;
+      const cap = document.createElement("figcaption");
+      const label = document.createElement("span");
+      label.dataset.i18n = "photo";
+      label.textContent = t("photo");
+      const source = Object.assign(document.createElement("a"), { href: c.sourceUrl, target: "_blank", rel: "noopener", textContent: c.author });
+      const licence = c.licenseUrl
+        ? Object.assign(document.createElement("a"), { href: c.licenseUrl, target: "_blank", rel: "noopener", textContent: c.license })
+        : document.createTextNode(c.license);
+      cap.append(label, ": ", source, ", ", licence);
+      fig.append(cap);
+    }
+  });
+
 // ---------- start ----------
 
 setLang(initialLang());

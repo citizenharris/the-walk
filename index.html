@@ -66,6 +66,8 @@
       </div>
 
       <div class="sheet-scroll" id="guide-pages">
+        <!-- Each stop: data-lat/lng is where the pin goes; li[data-lat] items get a dashed sightline on the map. -->
+
         <section class="page" data-kind="intro" id="intro">
           <header class="page-head">
             <span class="badge" aria-hidden="true">★</span>
@@ -74,127 +76,543 @@
               <p class="step"><span data-fill="distance"></span> · <span data-fill="duration"></span></p>
             </div>
           </header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <p class="lede" lang="en">
+              This is the walk we take everyone who comes to stay. It follows the south bank of the Thames from Vauxhall to St Katharine Docks, past most
+              of the London you know from postcards, and it ends with a drink at the Dickens Inn.
+            </p>
+            <p lang="en">
+              Move from stop to stop and the map follows you along the route. The solid red line shows how far you've come. The dotted spur near the
+              London Eye is an optional detour.
+            </p>
+            <h3><span lang="en">Getting there</span></h3>
+            <p lang="en">
+              Start at Vauxhall station (Victoria line, or trains from Waterloo). Head for the river and the big green building by Vauxhall Bridge.
+            </p>
+            <h3><span lang="en">Before you go</span></h3>
+            <p lang="en">
+              Wear comfortable shoes. It's nearly all flat, but it's a long way, and it's always windier by the river. Borough Market is our lunch stop
+              and it's closed on Mondays, so we don't do this walk on a Monday.
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="vauxhall" data-label="0" data-lat="51.4872" data-lng="-0.1236">
           <header class="page-head"><span class="badge" aria-hidden="true">0</span><div><h2>Vauxhall</h2><p class="step"></p></div></header>
-          <div class="page-body"><ul class="across"><li data-name="Tate Britain" data-lat="51.49112" data-lng="-0.12782"></li></ul></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="vauxhall">
+              <img src="images/vauxhall.jpg" loading="lazy" width="1200" height="800" data-alt-en="The green and cream MI6 building beside the Thames at Vauxhall" />
+            </figure>
+            <p lang="en">
+              The big green-and-cream building by the bridge is the headquarters of MI6, the Secret Intelligence Service. Terry Farrell designed it and
+              it opened in 1994. It isn't very secret: it gets attacked in three James Bond films.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The thick green windows. Then turn north with the river on your left. It stays on your left until Tower Bridge.</p>
+            <div class="across">
+              <h3 data-i18n="across"></h3>
+              <ul>
+                <li data-name="Tate Britain" data-lat="51.49112" data-lng="-0.12782">
+                  <strong>Tate Britain</strong> <span lang="en">The national gallery of British art, with the biggest collection of Turner's paintings.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="covid-wall" data-label="1" data-lat="51.4985" data-lng="-0.1203">
-          <header class="page-head"><span class="badge" aria-hidden="true">1</span><div><h2>Covid Memorial Wall</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">1</span>
+            <div><h2><span lang="en">Covid Memorial Wall</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="covid-wall">
+              <img src="images/covid-wall.jpg" loading="lazy" width="1200" height="800" data-alt-en="Red hearts painted along the National Covid Memorial Wall" />
+            </figure>
+            <p lang="en">
+              For about 500 metres along the river, opposite Parliament, the wall is covered in hand-painted red hearts. Each heart stands for someone in
+              the UK who died of Covid-19. Bereaved families and the campaign group Led By Donkeys started painting them in March 2021. There are now
+              more than 250,000, and volunteers still look after them.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The writing inside the hearts: names, dates, messages to mums and grandads. Stop and read a few.</p>
+            <h3><span lang="en">On the way</span></h3>
+            <p lang="en">
+              Just before the wall, by Lambeth Bridge, is the red-brick gatehouse of Lambeth Palace. The Archbishops of Canterbury have had their London
+              home here for about 800 years.
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="parliament" data-label="2" data-lat="51.5006" data-lng="-0.1203">
-          <header class="page-head"><span class="badge" aria-hidden="true">2</span><div><h2>Big Ben &amp; Parliament</h2><p class="step"></p></div></header>
-          <div class="page-body"><ul class="across"><li data-name="Big Ben" data-lat="51.50069" data-lng="-0.12457"></li></ul></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">2</span>
+            <div><h2><span lang="en">Big Ben &amp; Parliament</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="parliament">
+              <img src="images/parliament.jpg" loading="lazy" width="1200" height="800" data-alt-en="The Houses of Parliament and the Elizabeth Tower across the Thames" />
+            </figure>
+            <p lang="en">
+              Across the river is the Palace of Westminster, where both Houses of Parliament sit. Most of it was rebuilt by Charles Barry and Augustus
+              Pugin after a fire in 1834. "Big Ben" is really the name of the great bell. The clock tower has been called the Elizabeth Tower since
+              2012.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">
+              Walk a few steps onto Westminster Bridge for the classic photo. The bridge is painted green, said to match the benches in the House of
+              Commons. Lambeth Bridge, behind you, is red, like the House of Lords.
+            </p>
+            <div class="across">
+              <h3 data-i18n="across"></h3>
+              <ul>
+                <li data-name="Big Ben" data-lat="51.50069" data-lng="-0.12457">
+                  <strong>Big Ben</strong> <span lang="en">The bell inside the Elizabeth Tower. It has struck the hours since 1859.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="london-eye" data-label="3" data-lat="51.5033" data-lng="-0.1196">
           <header class="page-head"><span class="badge" aria-hidden="true">3</span><div><h2>London Eye</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="london-eye">
+              <img src="images/london-eye.jpg" loading="lazy" width="1200" height="800" data-alt-en="The London Eye wheel on the South Bank" />
+            </figure>
+            <p lang="en">
+              Built for the millennium and meant to stay for only five years, the Eye opened to the public in March 2000 and never left. It's 135 metres
+              high and one turn takes about half an hour.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">Count the capsules. There are 32, but they're numbered up to 33, because there's no number 13.</p>
+            <p class="practical">
+              <a href="https://www.londoneye.com/" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span lang="en">tickets needed</span> · <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="detour" id="leake-street" data-label="3a" data-lat="51.50135" data-lng="-0.11474">
-          <header class="page-head"><span class="badge" aria-hidden="true">3a</span><div><h2>Leake Street</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">3a</span>
+            <div><h2><span lang="en">Leake Street tunnel</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="leake-street">
+              <img src="images/leake-street.jpg" loading="lazy" width="1200" height="800" data-alt-en="Graffiti covering the walls and ceiling of the Leake Street tunnel" />
+            </figure>
+            <p lang="en">
+              A short detour inland from the Eye. Leake Street is a road tunnel under Waterloo station where painting the walls is allowed. It started
+              with Banksy's Cans Festival in 2008, and the walls have been painted over ever since, sometimes several times a day.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">Someone at work with a spray can. Whatever you see today will probably be gone by next week.</p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="southbank" data-label="4" data-lat="51.5070" data-lng="-0.1163">
-          <header class="page-head"><span class="badge" aria-hidden="true">4</span><div><h2>Southbank Centre</h2><p class="step"></p></div></header>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">4</span>
+            <div><h2><span lang="en">Southbank Centre &amp; markets</span></h2><p class="step"></p></div>
+          </header>
           <div class="page-body">
-            <ul class="across">
-              <li data-name="Cleopatra's Needle" data-lat="51.50852" data-lng="-0.12032"></li>
-              <li data-name="Somerset House" data-lat="51.5110" data-lng="-0.1172"></li>
-            </ul>
+            <figure class="photo" data-photo="southbank">
+              <img src="images/southbank.jpg" loading="lazy" width="1200" height="800" data-alt-en="The Southbank Centre beside the river" />
+            </figure>
+            <p lang="en">
+              The Royal Festival Hall was built for the Festival of Britain in 1951 and is still one of London's main concert halls. Around it is a
+              cluster of concrete arts buildings. Under the Queen Elizabeth Hall is a skate park that skaters have used since the 1970s.
+            </p>
+            <p lang="en">
+              Under Waterloo Bridge there's a second-hand book market every day. Behind the Festival Hall, the food market runs from Friday to Sunday,
+              and usually closes for a few weeks after Christmas.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The tables of old maps and prints at the book market. They make good, cheap presents.</p>
+            <div class="across">
+              <h3 data-i18n="across"></h3>
+              <ul>
+                <li data-name="Cleopatra's Needle" data-lat="51.50852" data-lng="-0.12032">
+                  <strong>Cleopatra's Needle</strong>
+                  <span lang="en">
+                    An Egyptian obelisk about 3,500 years old, put up here in 1878. The marks on its base and on one of the sphinxes are shrapnel damage
+                    from a German air raid in 1917.
+                  </span>
+                </li>
+                <li data-name="Somerset House" data-lat="51.5110" data-lng="-0.1172">
+                  <strong>Somerset House</strong> <span lang="en">An 18th-century palace of government offices. In winter its courtyard becomes an ice rink.</span>
+                </li>
+              </ul>
+            </div>
+            <p class="practical">
+              <a href="https://www.southbankcentre.co.uk/venue/food-market/" target="_blank" rel="noopener"><span lang="en">Food market</span></a> ·
+              <span class="checked" data-i18n="checked"></span>
+            </p>
           </div>
         </section>
 
         <section class="page" data-kind="stop" id="tate-modern" data-label="5" data-lat="51.5080" data-lng="-0.0995">
           <header class="page-head"><span class="badge" aria-hidden="true">5</span><div><h2>Tate Modern</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="tate-modern">
+              <img src="images/tate-modern.jpg" loading="lazy" width="1200" height="800" data-alt-en="Tate Modern, the former Bankside Power Station, with its tall chimney" />
+            </figure>
+            <p lang="en">
+              This was Bankside Power Station, designed by Giles Gilbert Scott, who also designed the red telephone box. It became a gallery in 2000.
+              The main collection is free, and the old Turbine Hall shows one huge new artwork every year.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">
+              The free viewing level on Level 10 of the Blavatnik Building, the twisted brick tower at the back. If you've got 20 minutes to spare, the
+              view over the river is worth it.
+            </p>
+            <p class="practical">
+              <a href="https://www.tate.org.uk/visit/tate-modern" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span lang="en">free</span> · <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="millennium-bridge" data-label="6" data-lat="51.5086" data-lng="-0.0985">
-          <header class="page-head"><span class="badge" aria-hidden="true">6</span><div><h2>Millennium Bridge &amp; St Paul's</h2><p class="step"></p></div></header>
-          <div class="page-body"><ul class="across"><li data-name="St Paul's" data-lat="51.51379" data-lng="-0.09845"></li></ul></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">6</span>
+            <div><h2><span lang="en">Millennium Bridge &amp; St Paul's</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="millennium-bridge">
+              <img src="images/millennium-bridge.jpg" loading="lazy" width="1200" height="800" data-alt-en="The Millennium Bridge leading across the Thames to St Paul's Cathedral" />
+            </figure>
+            <p lang="en">
+              This footbridge opened in June 2000 and closed two days later, because it swayed when crowds walked across. Londoners still call it the
+              Wobbly Bridge. It reopened in 2002 with dampers fitted underneath.
+            </p>
+            <p lang="en">
+              At the far end is St Paul's Cathedral. Christopher Wren built it after the Great Fire of 1666, and it was declared complete in 1711.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">
+              The view from the middle of the bridge, which lines up with the dome of St Paul's. Harry Potter fans may recognise the bridge: Death Eaters
+              destroy it in <i>Half-Blood Prince</i>.
+            </p>
+            <p class="access">
+              <strong data-i18n="stepFree"></strong>
+              <span lang="en">You don't need to go onto the bridge. St Paul's is in clear view from the riverside path.</span>
+            </p>
+            <div class="across">
+              <h3 data-i18n="across"></h3>
+              <ul>
+                <li data-name="St Paul's" data-lat="51.51379" data-lng="-0.09845">
+                  <strong>St Paul's Cathedral</strong> <span lang="en">Its dome has been part of London's skyline for over 300 years.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="globe" data-label="7" data-lat="51.5083" data-lng="-0.0970">
-          <header class="page-head"><span class="badge" aria-hidden="true">7</span><div><h2>Shakespeare's Globe</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">7</span>
+            <div><h2><span lang="en">Shakespeare's Globe</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="globe">
+              <img src="images/globe.jpg" loading="lazy" width="1200" height="800" data-alt-en="The white walls and thatched roof of Shakespeare's Globe" />
+            </figure>
+            <p lang="en">
+              A reconstruction of the open-air theatre where many of Shakespeare's plays were first staged. It opened in 1997, about 230 metres from the
+              original site. The American actor Sam Wanamaker spent more than 20 years making it happen, and died before it opened. Its thatched roof is
+              said to be the first allowed in London since the Great Fire.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">
+              In summer you can watch a play standing in the yard in front of the stage, just as people did in Shakespeare's day. Those tickets are the
+              cheapest in the house.
+            </p>
+            <p class="practical">
+              <a href="https://www.shakespearesglobe.com/seasons/guided-tours/" target="_blank" rel="noopener"><span lang="en">Tours</span></a> ·
+              <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="golden-hinde" data-label="8" data-lat="51.5070" data-lng="-0.0903">
           <header class="page-head"><span class="badge" aria-hidden="true">8</span><div><h2>Golden Hinde</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="golden-hinde">
+              <img src="images/golden-hinde.jpg" loading="lazy" width="1200" height="800" data-alt-en="The Golden Hinde, a replica Tudor galleon, in its small dock" />
+            </figure>
+            <p lang="en">
+              A full-size replica of the ship in which Francis Drake sailed around the world between 1577 and 1580. It was launched in 1973. It's tiny,
+              and it's hard to believe the original crossed oceans.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">
+              The narrow street you've just walked down: Clink Street, where the Clink prison stood. It's why "in the clink" means "in prison".
+            </p>
+            <p class="practical">
+              <a href="https://www.goldenhinde.co.uk/" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span lang="en">you can go on board</span> · <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="southwark-cathedral" data-label="9" data-lat="51.5060" data-lng="-0.0898">
-          <header class="page-head"><span class="badge" aria-hidden="true">9</span><div><h2>Southwark Cathedral</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">9</span>
+            <div><h2><span lang="en">Southwark Cathedral</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="southwark-cathedral">
+              <img src="images/southwark-cathedral.jpg" loading="lazy" width="1200" height="800" data-alt-en="The tower of Southwark Cathedral" />
+            </figure>
+            <p lang="en">
+              There have been churches on this spot for centuries, but it only became a cathedral in 1905. Shakespeare's younger brother Edmund is
+              buried here. John Harvard, who gave his name to Harvard University, was baptised here in 1607, and a chapel is named after him.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">
+              Shakespeare himself, carved in alabaster and lying down with a quill, under a stained-glass window of characters from his plays.
+            </p>
+            <p class="practical">
+              <a href="https://cathedral.southwark.anglican.org/visiting/visitor-information/" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span lang="en">free, donations welcome</span> · <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="borough-market" data-label="10" data-lat="51.5054" data-lng="-0.0907">
-          <header class="page-head"><span class="badge" aria-hidden="true">10</span><div><h2>Borough Market</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">10</span>
+            <div><h2><span lang="en">Borough Market · lunch</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="borough-market">
+              <img src="images/borough-market.jpg" loading="lazy" width="1200" height="800" data-alt-en="Food stalls under the iron and glass roof of Borough Market" />
+            </figure>
+            <p lang="en">
+              Our lunch stop. There has been a market at this end of London Bridge for centuries (the market claims 1014), and it has been on this site
+              since 1756. Today it's London's best-known food market.
+            </p>
+            <p lang="en">Go hungry, and walk all the way round before you choose. Queues are part of the experience.</p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The glass-and-iron portico on Stoney Street. It used to be part of the Royal Opera House in Covent Garden.</p>
+            <p class="practical">
+              <span lang="en">Open Tue–Fri 10:00–17:00, Sat 09:00–17:00, Sun 10:00–16:00. <strong>Closed Mondays.</strong></span>
+              <br />
+              <a href="https://boroughmarket.org.uk/visit-us/" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="london-bridge" data-label="11" data-lat="51.5068" data-lng="-0.0872">
           <header class="page-head"><span class="badge" aria-hidden="true">11</span><div><h2>London Bridge</h2><p class="step"></p></div></header>
-          <div class="page-body"><ul class="across"><li data-name="The Monument" data-lat="51.51015" data-lng="-0.08594"></li></ul></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="london-bridge">
+              <img src="images/london-bridge.jpg" loading="lazy" width="1200" height="800" data-alt-en="The plain concrete London Bridge crossing the Thames" />
+            </figure>
+            <p lang="en">
+              There has been a bridge here since Roman times. The medieval one had houses and shops on it, and traitors' heads on spikes over its gate.
+              Today's plain concrete bridge opened in 1973. The one before it was sold to an American, Robert McCulloch, and rebuilt in Lake Havasu
+              City, Arizona. The story that he thought he was buying Tower Bridge is a myth.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The gold flames on top of the Monument, across the river.</p>
+            <div class="across">
+              <h3 data-i18n="across"></h3>
+              <ul>
+                <li data-name="The Monument" data-lat="51.51015" data-lng="-0.08594">
+                  <strong>The Monument</strong>
+                  <span lang="en">
+                    A 61-metre column marking the Great Fire of 1666. Its height equals its distance from the bakery in Pudding Lane where the fire
+                    started. You can climb its 311 steps.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="hays-galleria" data-label="12" data-lat="51.5059" data-lng="-0.0838">
           <header class="page-head"><span class="badge" aria-hidden="true">12</span><div><h2>Hay's Galleria</h2><p class="step"></p></div></header>
-          <div class="page-body"><ul class="across"><li data-name="Custom House" data-lat="51.50882" data-lng="-0.08237"></li></ul></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="hays-galleria">
+              <img src="images/hays-galleria.jpg" loading="lazy" width="1200" height="800" data-alt-en="The glass-roofed arcade of Hay's Galleria with The Navigators sculpture" />
+            </figure>
+            <p lang="en">
+              This was Hay's Wharf, one of the busiest docks in the Port of London. So much food was landed here that it was called the Larder of London,
+              and it was a main landing place for tea. In the 1980s the dock was filled in and roofed over with glass.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The Navigators, David Kemp's giant bronze ship sculpture from 1987, in the middle of the arcade.</p>
+            <div class="across">
+              <h3 data-i18n="across"></h3>
+              <ul>
+                <li data-name="Custom House" data-lat="51.50882" data-lng="-0.08237">
+                  <strong>Custom House</strong>
+                  <span lang="en">The long classical building where duty was collected on goods arriving by ship.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="hms-belfast" data-label="13" data-lat="51.5058" data-lng="-0.0812">
           <header class="page-head"><span class="badge" aria-hidden="true">13</span><div><h2>HMS Belfast</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="hms-belfast">
+              <img src="images/hms-belfast.jpg" loading="lazy" width="1200" height="800" data-alt-en="The grey warship HMS Belfast moored on the Thames" />
+            </figure>
+            <p lang="en">
+              A Second World War cruiser, launched in 1938. She fought at the Battle of North Cape in 1943, when the German battleship Scharnhorst was
+              sunk, and fired on the Normandy beaches on D-Day. She has been a museum since 1971.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">Where the front guns point. They're aimed at London Gateway services on the M1 motorway, about 12 miles away.</p>
+            <p class="practical">
+              <a href="https://www.iwm.org.uk/visits/hms-belfast" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span lang="en">tickets needed</span> · <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="city-view" data-label="14" data-lat="51.5048" data-lng="-0.0785">
-          <header class="page-head"><span class="badge" aria-hidden="true">14</span><div><h2>The City from the South Bank</h2><p class="step"></p></div></header>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">14</span>
+            <div><h2><span lang="en">The view of the City</span></h2><p class="step"></p></div>
+          </header>
           <div class="page-body">
-            <ul class="across">
-              <li data-name="The Gherkin" data-lat="51.5145" data-lng="-0.08033"></li>
-              <li data-name="Walkie-Talkie" data-lat="51.51127" data-lng="-0.08354"></li>
-              <li data-name="Cheesegrater" data-lat="51.5137" data-lng="-0.0817"></li>
-            </ul>
+            <figure class="photo" data-photo="city-view">
+              <img src="images/city-view.jpg" loading="lazy" width="1200" height="800" data-alt-en="The towers of the City of London seen across the Thames" />
+            </figure>
+            <p lang="en">
+              This is the best view of the City of London: the old square mile, now full of banks and insurers, on the other bank. Its towers all have
+              nicknames.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The Tower of London, low and grey among all the glass. It is almost a thousand years older than its neighbours.</p>
+            <div class="across">
+              <h3 data-i18n="across"></h3>
+              <ul>
+                <li data-name="The Gherkin" data-lat="51.5145" data-lng="-0.08033">
+                  <strong>The Gherkin</strong> <span lang="en">30 St Mary Axe, finished in 2003. You can see why it got the name.</span>
+                </li>
+                <li data-name="Walkie-Talkie" data-lat="51.51127" data-lng="-0.08354">
+                  <strong>Walkie-Talkie</strong>
+                  <span lang="en">
+                    20 Fenchurch Street. In 2013 its curved glass focused sunlight hot enough to melt parts of a parked car. The Sky Garden at the top is
+                    free if you book ahead.
+                  </span>
+                </li>
+                <li data-name="Cheesegrater" data-lat="51.5137" data-lng="-0.0817">
+                  <strong>Cheesegrater</strong> <span lang="en">The Leadenhall Building, named for its sloping wedge shape.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
         <section class="page" data-kind="stop" id="tower-bridge" data-label="15" data-lat="51.5055" data-lng="-0.0754">
           <header class="page-head"><span class="badge" aria-hidden="true">15</span><div><h2>Tower Bridge</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="tower-bridge">
+              <img src="images/tower-bridge.jpg" loading="lazy" width="1200" height="800" data-alt-en="Tower Bridge with its two stone towers and blue walkways" />
+            </figure>
+            <p lang="en">
+              Tower Bridge opened in 1894, and the road in the middle still lifts to let tall ships through. It's free to walk across. The high walkways
+              between the towers, about 42 metres above the river, are part of the paid Tower Bridge Exhibition. They have glass floors, so you can
+              stand and look straight down at the traffic and the boats.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The lift times. If the bridge is due to open while you're here, it's worth waiting to watch.</p>
+            <p class="access">
+              <strong data-i18n="stepFree"></strong>
+              <span lang="en">There are stairs up from the riverside. To avoid them, walk round by Tooley Street, which meets the bridge at road level.</span>
+            </p>
+            <p class="practical">
+              <a href="https://www.towerbridge.org.uk/" target="_blank" rel="noopener"><span lang="en">Exhibition &amp; glass floor</span></a> ·
+              <a href="https://www.towerbridge.org.uk/bridge-lifts" target="_blank" rel="noopener"><span lang="en">Lift times</span></a> ·
+              <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="tower-of-london" data-label="16" data-lat="51.5078" data-lng="-0.0757">
-          <header class="page-head"><span class="badge" aria-hidden="true">16</span><div><h2>Tower of London</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">16</span>
+            <div><h2><span lang="en">Tower of London</span></h2><p class="step"></p></div>
+          </header>
+          <div class="page-body">
+            <figure class="photo" data-photo="tower-of-london">
+              <img src="images/tower-of-london.jpg" loading="lazy" width="1200" height="800" data-alt-en="The White Tower inside the walls of the Tower of London" />
+            </figure>
+            <p lang="en">
+              William the Conqueror began the White Tower around 1078 to keep London in line. Since then the Tower has been a royal palace, a prison and
+              a place of execution. It still guards the Crown Jewels.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">
+              Traitors' Gate, the water entrance on the river side. And the ravens: legend says the kingdom will fall if they leave, so at least six are
+              kept, plus a spare.
+            </p>
+            <p class="practical">
+              <a href="https://www.hrp.org.uk/tower-of-london/" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span lang="en">tickets needed, best booked ahead</span> · <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="st-katharine-docks" data-label="17" data-lat="51.5066" data-lng="-0.0726">
           <header class="page-head"><span class="badge" aria-hidden="true">17</span><div><h2>St Katharine Docks</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="st-katharine-docks">
+              <img src="images/st-katharine-docks.jpg" loading="lazy" width="1200" height="800" data-alt-en="Boats moored in the marina at St Katharine Docks" />
+            </figure>
+            <p lang="en">
+              The docks opened in 1828, built by the engineer Thomas Telford, and handled luxury goods like ivory, tea and spices. Too small for modern
+              ships, they were turned into a marina, and now they're full of yachts.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">The Ivory House, the old warehouse with a clock tower, where ivory was once stored.</p>
+          </div>
         </section>
 
         <section class="page" data-kind="stop" id="dickens-inn" data-label="18" data-lat="51.50675" data-lng="-0.07022">
           <header class="page-head"><span class="badge" aria-hidden="true">18</span><div><h2>The Dickens Inn</h2><p class="step"></p></div></header>
-          <div class="page-body"></div>
+          <div class="page-body">
+            <figure class="photo" data-photo="dickens-inn">
+              <img src="images/dickens-inn.jpg" loading="lazy" width="1200" height="800" data-alt-en="The timber-fronted Dickens Inn with its balconies" />
+            </figure>
+            <p lang="en">
+              The end of the walk, and time for a drink. The building is an old timber-framed warehouse that was moved to this spot and opened as a pub
+              in 1976 by Cedric Charles Dickens, the novelist's great-grandson. Charles Dickens never drank here, but the name stuck.
+            </p>
+            <h3 data-i18n="lookFor"></h3>
+            <p lang="en">A table on one of the balconies, overlooking the marina.</p>
+            <p class="practical">
+              <a href="https://www.dickensinn.co.uk/" target="_blank" rel="noopener" data-i18n="officialSite"></a> ·
+              <span class="checked" data-i18n="checked"></span>
+            </p>
+          </div>
         </section>
 
         <section class="page" data-kind="outro" id="home" data-lat="51.50675" data-lng="-0.07022">
-          <header class="page-head"><span class="badge" aria-hidden="true">✓</span><div><h2>Getting home</h2></div></header>
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">✓</span>
+            <div><h2><span lang="en">Getting home</span></h2></div>
+          </header>
           <div class="page-body">
+            <p lang="en">Two stations are a few minutes' walk away, on the other side of the Tower.</p>
             <ul class="stations">
-              <li data-name="Tower Hill" data-lat="51.50985" data-lng="-0.0767"></li>
-              <li data-name="Tower Gateway" data-lat="51.5105" data-lng="-0.07477"></li>
+              <li data-name="Tower Hill" data-lat="51.50985" data-lng="-0.0767">
+                <strong>Tower Hill</strong> <span lang="en">District and Circle lines.</span>
+              </li>
+              <li data-name="Tower Gateway" data-lat="51.5105" data-lng="-0.07477">
+                <strong>Tower Gateway</strong> <span lang="en">DLR, towards Shadwell and east London.</span>
+              </li>
             </ul>
+            <p lang="en">Or take an Uber Boat (Thames Clippers) from Tower Pier, beside the Tower, and see the walk again from the water.</p>
           </div>
         </section>
       </div>
