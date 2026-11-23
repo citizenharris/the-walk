@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#fbfaf7" />
+    <title>The Walk</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.css"
+      integrity="sha384-uTttxo/aOKbdE5RlD/SPzSDoDmNvGlUYPjONi2MN/b7c9HPSvW07OIuyP7uL6jxK"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <!-- The base map is OpenFreeMap vector tiles, which Leaflet can't draw itself; MapLibre draws them as a Leaflet layer. -->
+    <script
+      src="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.js"
+      integrity="sha384-nXMl9YiLoSG5KBPTFgvxVuIqQQcqIvo0bFrvoEaGJC6r7IibIzF1S36Zbf/sKBtL"
+      crossorigin=""
+    ></script>
+    <script
+      src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.1.4/leaflet-maplibre-gl.js"
+      integrity="sha384-tXYNKOHx4T02jMP7YYCtBxPIv1B5gaA5mcVPBzqMp6d7VzWzxJgI2aWF/nJLrQdS"
+      crossorigin=""
+    ></script>
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body class="layout-sheet">
+    <header class="topbar">
+      <h1>The Walk</h1>
+      <div class="tools">
+        <button id="gps" class="tool" type="button" aria-pressed="false" data-i18n-aria="gpsOn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v4M12 18v4M2 12h4M18 12h4" /><circle cx="12" cy="12" r="8" /></svg>
+        </button>
+        <button id="layout-toggle" class="tool" type="button" data-i18n-aria="toSplit">
+          <svg class="icon-split" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 11h18M7 15h10M7 18h6" /></svg>
+          <svg class="icon-sheet" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 15h18M9 18h6" /></svg>
+        </button>
+        <button id="lang-toggle" class="tool" type="button" data-i18n-aria="switchLang">IT</button>
+      </div>
+    </header>
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar"></div></div>
+
+    <div id="map" role="region" data-i18n-aria="map"></div>
+
+    <main id="guide">
+      <div class="sheet-top">
+        <button class="nav-prev" type="button" data-i18n-aria="prev">◄</button>
+        <button class="handle" type="button" aria-expanded="false" aria-controls="guide-pages" data-i18n-aria="expand">
+          <span class="grip" aria-hidden="true"></span>
+          <span class="pos"></span>
+        </button>
+        <button class="nav-next" type="button" data-i18n-aria="next">►</button>
+      </div>
+
+      <div class="sheet-scroll" id="guide-pages">
+        <section class="page" data-kind="intro" id="intro">
+          <header class="page-head">
+            <span class="badge" aria-hidden="true">★</span>
+            <div>
+              <h2>The Walk</h2>
+              <p class="step"><span data-fill="distance"></span> · <span data-fill="duration"></span></p>
+            </div>
+          </header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="vauxhall" data-label="0" data-lat="51.4872" data-lng="-0.1236">
+          <header class="page-head"><span class="badge" aria-hidden="true">0</span><div><h2>Vauxhall</h2><p class="step"></p></div></header>
+          <div class="page-body"><ul class="across"><li data-name="Tate Britain" data-lat="51.49112" data-lng="-0.12782"></li></ul></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="covid-wall" data-label="1" data-lat="51.4985" data-lng="-0.1203">
+          <header class="page-head"><span class="badge" aria-hidden="true">1</span><div><h2>Covid Memorial Wall</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="parliament" data-label="2" data-lat="51.5006" data-lng="-0.1203">
+          <header class="page-head"><span class="badge" aria-hidden="true">2</span><div><h2>Big Ben &amp; Parliament</h2><p class="step"></p></div></header>
+          <div class="page-body"><ul class="across"><li data-name="Big Ben" data-lat="51.50069" data-lng="-0.12457"></li></ul></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="london-eye" data-label="3" data-lat="51.5033" data-lng="-0.1196">
+          <header class="page-head"><span class="badge" aria-hidden="true">3</span><div><h2>London Eye</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="detour" id="leake-street" data-label="3a" data-lat="51.50135" data-lng="-0.11474">
+          <header class="page-head"><span class="badge" aria-hidden="true">3a</span><div><h2>Leake Street</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="southbank" data-label="4" data-lat="51.5070" data-lng="-0.1163">
+          <header class="page-head"><span class="badge" aria-hidden="true">4</span><div><h2>Southbank Centre</h2><p class="step"></p></div></header>
+          <div class="page-body">
+            <ul class="across">
+              <li data-name="Cleopatra's Needle" data-lat="51.50852" data-lng="-0.12032"></li>
+              <li data-name="Somerset House" data-lat="51.5110" data-lng="-0.1172"></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="page" data-kind="stop" id="tate-modern" data-label="5" data-lat="51.5080" data-lng="-0.0995">
+          <header class="page-head"><span class="badge" aria-hidden="true">5</span><div><h2>Tate Modern</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="millennium-bridge" data-label="6" data-lat="51.5086" data-lng="-0.0985">
+          <header class="page-head"><span class="badge" aria-hidden="true">6</span><div><h2>Millennium Bridge &amp; St Paul's</h2><p class="step"></p></div></header>
+          <div class="page-body"><ul class="across"><li data-name="St Paul's" data-lat="51.51379" data-lng="-0.09845"></li></ul></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="globe" data-label="7" data-lat="51.5083" data-lng="-0.0970">
+          <header class="page-head"><span class="badge" aria-hidden="true">7</span><div><h2>Shakespeare's Globe</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="golden-hinde" data-label="8" data-lat="51.5070" data-lng="-0.0903">
+          <header class="page-head"><span class="badge" aria-hidden="true">8</span><div><h2>Golden Hinde</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="southwark-cathedral" data-label="9" data-lat="51.5060" data-lng="-0.0898">
+          <header class="page-head"><span class="badge" aria-hidden="true">9</span><div><h2>Southwark Cathedral</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="borough-market" data-label="10" data-lat="51.5054" data-lng="-0.0907">
+          <header class="page-head"><span class="badge" aria-hidden="true">10</span><div><h2>Borough Market</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="london-bridge" data-label="11" data-lat="51.5068" data-lng="-0.0872">
+          <header class="page-head"><span class="badge" aria-hidden="true">11</span><div><h2>London Bridge</h2><p class="step"></p></div></header>
+          <div class="page-body"><ul class="across"><li data-name="The Monument" data-lat="51.51015" data-lng="-0.08594"></li></ul></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="hays-galleria" data-label="12" data-lat="51.5059" data-lng="-0.0838">
+          <header class="page-head"><span class="badge" aria-hidden="true">12</span><div><h2>Hay's Galleria</h2><p class="step"></p></div></header>
+          <div class="page-body"><ul class="across"><li data-name="Custom House" data-lat="51.50882" data-lng="-0.08237"></li></ul></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="hms-belfast" data-label="13" data-lat="51.5058" data-lng="-0.0812">
+          <header class="page-head"><span class="badge" aria-hidden="true">13</span><div><h2>HMS Belfast</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="city-view" data-label="14" data-lat="51.5048" data-lng="-0.0785">
+          <header class="page-head"><span class="badge" aria-hidden="true">14</span><div><h2>The City from the South Bank</h2><p class="step"></p></div></header>
+          <div class="page-body">
+            <ul class="across">
+              <li data-name="The Gherkin" data-lat="51.5145" data-lng="-0.08033"></li>
+              <li data-name="Walkie-Talkie" data-lat="51.51127" data-lng="-0.08354"></li>
+              <li data-name="Cheesegrater" data-lat="51.5137" data-lng="-0.0817"></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="page" data-kind="stop" id="tower-bridge" data-label="15" data-lat="51.5055" data-lng="-0.0754">
+          <header class="page-head"><span class="badge" aria-hidden="true">15</span><div><h2>Tower Bridge</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="tower-of-london" data-label="16" data-lat="51.5078" data-lng="-0.0757">
+          <header class="page-head"><span class="badge" aria-hidden="true">16</span><div><h2>Tower of London</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="st-katharine-docks" data-label="17" data-lat="51.5066" data-lng="-0.0726">
+          <header class="page-head"><span class="badge" aria-hidden="true">17</span><div><h2>St Katharine Docks</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="stop" id="dickens-inn" data-label="18" data-lat="51.50675" data-lng="-0.07022">
+          <header class="page-head"><span class="badge" aria-hidden="true">18</span><div><h2>The Dickens Inn</h2><p class="step"></p></div></header>
+          <div class="page-body"></div>
+        </section>
+
+        <section class="page" data-kind="outro" id="home" data-lat="51.50675" data-lng="-0.07022">
+          <header class="page-head"><span class="badge" aria-hidden="true">✓</span><div><h2>Getting home</h2></div></header>
+          <div class="page-body">
+            <ul class="stations">
+              <li data-name="Tower Hill" data-lat="51.50985" data-lng="-0.0767"></li>
+              <li data-name="Tower Gateway" data-lat="51.5105" data-lng="-0.07477"></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="announce" class="sr-only" aria-live="polite"></div>
+    <div id="toast" role="status"></div>
+  </body>
+</html>

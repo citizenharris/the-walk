@@ -1,0 +1,523 @@
+:root {
+  --ink: #1c1b19;
+  --muted: #6a665f;
+  --paper: #fbfaf7;
+  --line: #e4e0d8;
+  --red: #c8312b;
+  --top: 52px;
+  --peek: 132px;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.5 var(--sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Only the active language is shown. html itself carries lang, so exclude it. */
+html[lang="en"] [lang="it"]:not(html),
+html[lang="it"] [lang="en"]:not(html) {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--top);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 16px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar h1 {
+  margin: 0;
+  font: 600 1.35rem/1 var(--serif);
+  letter-spacing: 0.01em;
+}
+
+.tools {
+  display: flex;
+  gap: 4px;
+}
+
+.tool {
+  min-width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tool:hover {
+  background: #efece6;
+}
+
+.tool svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+#gps[aria-pressed="true"] {
+  color: #1a73e8;
+}
+
+/* The layout button shows the layout you'd switch to. */
+#layout-toggle[data-layout="sheet"] .icon-sheet,
+#layout-toggle[data-layout="split"] .icon-split {
+  display: none;
+}
+
+.progress {
+  position: fixed;
+  top: var(--top);
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1100;
+  background: transparent;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--red);
+  transition: width 0.4s ease;
+}
+
+/* ---------- map ---------- */
+
+#map {
+  position: fixed;
+  top: var(--top);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #f2efe9;
+}
+
+.pin {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font: 700 12px/1 var(--sans);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  transition: transform 0.2s ease;
+}
+
+.pin.visited {
+  background: var(--red);
+  color: #fff;
+}
+
+.pin.current {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  transform: scale(1.3);
+  z-index: 1000 !important;
+}
+
+.pin-detour {
+  border-style: dashed;
+}
+
+.zoomed-out .pin {
+  transform: scale(0.62);
+}
+
+.zoomed-out .pin.current {
+  transform: scale(0.9);
+}
+
+.across-label {
+  font: 600 12px/1.2 var(--sans);
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  box-shadow: none;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px;
+}
+
+/* ---------- guide: shared card styles ---------- */
+
+.page {
+  padding: 4px 20px 24px;
+}
+
+.page-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding-top: 8px;
+}
+
+.badge {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font: 700 13px/1 var(--sans);
+  margin-top: 2px;
+}
+
+.page[data-kind="detour"] .badge {
+  border-style: dashed;
+}
+
+.page[data-kind="intro"] .badge,
+.page[data-kind="outro"] .badge {
+  background: var(--red);
+  color: #fff;
+}
+
+.page h2 {
+  margin: 0;
+  font: 600 1.4rem/1.2 var(--serif);
+}
+
+.step {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-body {
+  padding-top: 12px;
+}
+
+.page-body p {
+  margin: 0 0 12px;
+}
+
+.page-body h3 {
+  margin: 18px 0 4px;
+  font: 700 0.75rem/1.2 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.photo {
+  margin: 0 0 14px;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #e9e5dd;
+}
+
+.photo figcaption {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.photo figcaption a {
+  color: inherit;
+}
+
+.across ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.across li {
+  margin: 0 0 8px;
+  padding-left: 14px;
+  border-left: 2px dashed #999;
+}
+
+.note {
+  background: #f3efe6;
+  border-radius: 6px;
+  padding: 2px 14px 4px;
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.access,
+.practical {
+  font-size: 0.9rem;
+}
+
+.access {
+  padding-left: 14px;
+  border-left: 3px solid #1a73e8;
+}
+
+.practical a {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.checked {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.lede {
+  font: 1.1rem/1.5 var(--serif);
+}
+
+/* ---------- sheet controls ---------- */
+
+.sheet-top {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.nav-prev,
+.nav-next {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.1rem;
+  color: var(--red);
+}
+
+.nav-prev:disabled,
+.nav-next:disabled {
+  color: #ccc;
+  cursor: default;
+}
+
+.handle {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 120px;
+  height: 44px;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+}
+
+.handle .grip {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: #cfcac0;
+}
+
+.pos {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+#toast {
+  position: fixed;
+  left: 50%;
+  top: calc(var(--top) + 16px);
+  transform: translate(-50%, -20px);
+  z-index: 1200;
+  max-width: min(90vw, 420px);
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ---------- layout: sheet (full map + card) ---------- */
+
+.layout-sheet {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+.layout-sheet #guide {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  height: var(--peek);
+  background: var(--paper);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 16px rgb(0 0 0 / 0.15);
+  transition: height 0.25s ease;
+  touch-action: none;
+}
+
+.layout-sheet #guide.expanded {
+  height: calc(100dvh - var(--top) - 64px);
+  touch-action: pan-y;
+}
+
+.layout-sheet .sheet-scroll {
+  flex: 1;
+  overflow: hidden;
+}
+
+.layout-sheet #guide.expanded .sheet-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.layout-sheet .page:not(.current) {
+  display: none;
+}
+
+.layout-sheet .page {
+  padding-top: 0;
+}
+
+.layout-sheet .page-head {
+  padding-top: 0;
+}
+
+@media (min-width: 900px) {
+  .layout-sheet #guide,
+  .layout-sheet #guide.expanded {
+    top: calc(var(--top) + 16px);
+    left: 16px;
+    bottom: 16px;
+    right: auto;
+    width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgb(0 0 0 / 0.18);
+    touch-action: auto;
+  }
+
+  .layout-sheet .sheet-scroll {
+    overflow-y: auto;
+  }
+
+  .layout-sheet .handle {
+    pointer-events: none;
+  }
+
+  .layout-sheet .handle .grip {
+    display: none;
+  }
+}
+
+/* ---------- layout: split (map above, list below) ---------- */
+
+.layout-split #map {
+  bottom: auto;
+  height: 42dvh;
+}
+
+.layout-split #guide {
+  position: relative;
+  margin-top: calc(var(--top) + 42dvh);
+  padding-bottom: 50dvh;
+}
+
+.layout-split .sheet-top {
+  display: none;
+}
+
+.layout-split .page {
+  border-bottom: 1px solid var(--line);
+  border-left: 4px solid transparent;
+  padding-top: 16px;
+  scroll-margin-top: calc(var(--top) + 42dvh);
+}
+
+.layout-split .page.current {
+  border-left-color: var(--red);
+}
+
+@media (min-width: 900px) {
+  .layout-split #map {
+    left: 44%;
+    height: auto;
+    bottom: 0;
+  }
+
+  .layout-split #guide {
+    width: 44%;
+    margin-top: var(--top);
+  }
+
+  .layout-split .page {
+    scroll-margin-top: calc(var(--top) + 24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

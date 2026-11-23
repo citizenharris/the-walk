@@ -1,0 +1,14 @@
+{
+  "name": "the-walk",
+  "private": true,
+  "type": "module",
+  "description": "Development tooling only. The site itself has no build step.",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "test": "playwright test",
+    "route": "node tools/build-route.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}

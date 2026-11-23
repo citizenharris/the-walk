@@ -86,8 +86,11 @@ Bridge Exhibition and the Tower of London aren't counted.
 
 ## Look
 
-Plain and editorial, made to be clear and easy to understand. Serif headings, a muted CARTO Positron base map and a red
-route line. The title is "The Walk".
+Plain and editorial, made to be clear and easy to understand. Serif headings, a muted Positron base map and a red route
+line. The title is "The Walk".
+
+The base map is OpenFreeMap's Positron style: free, no key, vector tiles drawn by MapLibre GL inside Leaflet. We first
+picked CARTO's Positron raster tiles, but in Nov 2026 those need an API key.
 
 ## Accessibility
 
@@ -101,7 +104,8 @@ route line. The title is "The Walk".
 - Plain HTML, CSS and JS with no build step.
 - Each stop is a `<section>` in `index.html` with its coordinates in `data-` attributes and both languages inline
   (`lang="en"` / `lang="it"`). Interface text comes from a small dictionary in the JS.
-- Leaflet is loaded from a CDN at a fixed version.
+- Leaflet, MapLibre GL 5 and the maplibre-gl-leaflet plugin are loaded from a CDN at fixed versions with integrity
+  hashes. MapLibre 6 ships only ES modules and the plugin needs the global build, so we stay on 5.
 - Playwright tests cover changing stop (the map moves and the route grows), the language switch and marker taps, in both
   layouts. A data check makes sure every stop has coordinates and both languages. `package.json` is used for development
   only.
