@@ -36,6 +36,10 @@ await shot("phone-split", phone, async (p) => {
   await p.click("#layout-toggle");
   await goToId("millennium-bridge")(p);
 });
+await shot("phone-sheet-it", { ...phone, locale: "it-IT" }, async (p) => {
+  await goToId("borough-market")(p);
+  await p.click(".handle");
+});
 await shot("laptop-sheet", laptop, goToId("tate-modern"));
 await shot("laptop-split", laptop, async (p) => {
   await p.click("#layout-toggle");
